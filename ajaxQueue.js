@@ -37,7 +37,7 @@ function doAjax(item)
         type:       'POST',
         url:        'delay.php',
         data:       'id=' + $( item ).attr('id'),
-        dataType:   'json',
+        dataType:   'text',
         timeout:    3000,
         success: function(response) {
             $( item ).removeClass("label-info").addClass("label-success").text("Success!");
@@ -48,6 +48,7 @@ function doAjax(item)
                 $( item ).removeClass("label-info").addClass("label-warning").text("Timeout");
                 doItem();
             } else {
+                console.log(t);
                 $( item ).removeClass("label-info").addClass("label-important").text("Error");
                 doItem();
             }
